@@ -31,7 +31,7 @@ def test_process_instruction(adapter):
     assert isinstance(result["data"], list)
     assert len(result["data"]) > 0
 
-    
+
 def test_network_instruction(adapter):
     result = adapter.execute(
         IRInstruction(IROpcode.SCAN_NETWORK)
@@ -39,7 +39,8 @@ def test_network_instruction(adapter):
 
     assert result["operation"] == "SCAN_NETWORK"
     assert result["platform"] == "Windows"
-    assert result["status"] == "not_implemented"
+    assert result["status"] == "success"
+    assert isinstance(result["data"], list)
 
 
 def test_dns_instruction(adapter):
@@ -49,7 +50,8 @@ def test_dns_instruction(adapter):
 
     assert result["operation"] == "SCAN_DNS"
     assert result["platform"] == "Windows"
-    assert result["status"] == "not_implemented"
+    assert result["status"] == "success"
+    assert isinstance(result["data"], list)
 
 
 def test_logs_instruction(adapter):
@@ -59,5 +61,5 @@ def test_logs_instruction(adapter):
 
     assert result["operation"] == "SCAN_LOGS"
     assert result["platform"] == "Windows"
-    assert result["status"] == "not_implemented"
-    
+    assert result["status"] == "success"
+    assert isinstance(result["data"], list)

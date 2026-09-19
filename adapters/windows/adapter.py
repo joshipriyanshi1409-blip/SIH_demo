@@ -2,6 +2,9 @@ import platform
 
 from compiler.ir.instructions import IRInstruction, IROpcode
 
+from adapters.windows.dns import collect_dns
+from adapters.windows.logs import collect_logs
+from adapters.windows.network import collect_network
 from adapters.windows.processes import collect_processes
 
 
@@ -42,22 +45,31 @@ class WindowsAdapter:
         }
 
     def scan_network(self) -> dict:
+        connections = collect_network()
+
         return {
             "operation": "SCAN_NETWORK",
             "platform": "Windows",
-            "status": "not_implemented",
+            "status": "success",
+            "data": connections,
         }
 
     def scan_dns(self) -> dict:
+        entries = collect_dns()
+
         return {
             "operation": "SCAN_DNS",
             "platform": "Windows",
-            "status": "not_implemented",
+            "status": "success",
+            "data": entries,
         }
 
     def scan_logs(self) -> dict:
+        logs = collect_logs()
+
         return {
             "operation": "SCAN_LOGS",
             "platform": "Windows",
-            "status": "not_implemented",
+            "status": "success",
+            "data": logs,
         }
