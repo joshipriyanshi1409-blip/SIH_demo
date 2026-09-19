@@ -9,7 +9,7 @@ Phase 1 — Windows development environment setup.
 
 ## Team
 
-- Person 1 — Windows / Team Lead
+- Person 1 — Windows 
 - Person 2 — Kali Linux
 
 ## Planned Pipeline
